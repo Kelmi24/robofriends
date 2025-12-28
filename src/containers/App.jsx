@@ -2,6 +2,7 @@ import React from "react";
 import CardList from "../components/CardList";
 import SearchBox from "../components/SearchBox";
 import Scroll from "../components/Scroll";
+import { robots as localRobots } from "../robots";
 
 class App extends React.Component {
     constructor () {
@@ -15,7 +16,8 @@ class App extends React.Component {
     componentDidMount() {
         fetch('https://jsonplaceholder.typicode.com/users')
         .then(response => response.json())
-        .then(users => this.setState({ robots: users }));
+        .then(users => this.setState({ robots: users }))
+        .catch(() => this.setState({ robots: localRobots }));
     }
 
     onSearchChange = (event) => {
@@ -29,7 +31,7 @@ class App extends React.Component {
         })
         return !robots.length ? <h1>Loading</h1> :
          (
-        <div className="tc">
+        <div className="tc" style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
             <h1>Robofriends from Rickelme</h1>
             <SearchBox searchChange={this.onSearchChange}/>
             <Scroll>

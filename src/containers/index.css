@@ -1,0 +1,118 @@
+/* Import 'Righteous' for a friendly tech look and 'Open Sans' for readability */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Righteous&display=swap');
+
+:root {
+  --font-heading: 'Righteous', cursive;
+  --font-body: 'Open Sans', sans-serif;
+  /* Glassmorphism variables */
+  --glass-bg: rgba(255, 255, 255, 0.2);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --shadow-soft: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  /* Vibrant, friendly gradient background (Purple to Blue) */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  color: white;
+  background-attachment: fixed; /* Keeps gradient fixed while scrolling */
+}
+
+/* Friendly, bubbly title */
+h1 {
+  font-family: var(--font-heading);
+  font-size: 4.5rem;
+  font-weight: normal;
+  color: #ffffff;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  text-shadow: 3px 3px 0px rgba(0,0,0,0.1); /* Soft block shadow instead of neon glow */
+  letter-spacing: 2px;
+  transition: transform 0.5s ease;
+}
+
+h1:hover {
+  transform: scale(1.05) rotate(-2deg); /* Playful tilt on hover */
+}
+
+/* Global link styling */
+a {
+  color: #ffd700; /* Gold color for links */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* 
+   OVERRIDE TACHYONS CLASSES FOR UNIQUE CARD DESIGN
+   Targeting .bg-dark-blue to apply Glassmorphism 
+*/
+.bg-dark-blue {
+  background: var(--glass-bg) !important; /* Override Tachyons solid color */
+  backdrop-filter: blur(10px); /* The "Frosted Glass" effect */
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-soft);
+  border-radius: 20px !important; /* Softer, rounder corners */
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Add a hover effect to the cards */
+.bg-dark-blue:hover {
+  transform: translateY(-10px) scale(1.02); /* Lift up effect */
+  background: rgba(255, 255, 255, 0.3) !important; /* Light up on hover */
+}
+
+/* Search Box Styling - Pill Shape */
+input[type="search"] {
+  font-family: var(--font-body);
+  padding: 15px 25px;
+  border-radius: 50px; /* Pill shape */
+  border: none;
+  width: 300px;
+  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Bouncy transition */
+  margin-bottom: 20px;
+}
+
+input[type="search"]:focus {
+  outline: none;
+  width: 340px; /* Expands when focused */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.3);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 3rem;
+  }
+  input[type="search"] {
+    width: 80%;
+  }
+  input[type="search"]:focus {
+    width: 90%;
+  }
+}

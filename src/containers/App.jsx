@@ -29,7 +29,13 @@ class App extends React.Component {
         const filteredRobots = robots.filter(robot => {
             return robot.name.toLowerCase().includes(searchfield.toLowerCase());
         })
-        return !robots.length ? <h1>Loading</h1> :
+        return !robots.length ? 
+        (
+          <div className="loading-container">
+            <div className="loader"></div>
+            <div className="loading-text">Loading...</div>
+          </div>
+        ) :
          (
         <div className="tc" style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
             <h1>Robofriends from Rickelme</h1>
